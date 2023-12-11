@@ -14,6 +14,9 @@ while run :
       if pygame.mouse.get_pressed() == (0,0,1) :
         pos2 = pygame.mouse.get_pos()
         print (pos2 , "clic droit")
+      if pygame.mouse.get_pressed() == (0,1,0):
+        pos3 = pygame.mouse.get_pos()
+        print (pos3)
   
   surf.fill((0,0,0))
   pygame.display.flip()
