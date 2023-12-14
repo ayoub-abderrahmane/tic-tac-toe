@@ -1,6 +1,8 @@
 import pygame
 pygame.init()
 
+font_path = "./Kids Draw.ttf"
+current_player = True
 surf = pygame.display.set_mode((900,600))
 run = True
 a = 0
@@ -20,6 +22,9 @@ m = 0
 c = 0
 v = 0
 
+font = pygame.font.Font(font_path, 64)
+text = font.render("VOUS ÊTES LE VAINQUEUR !",1,(0, 219, 253))
+
 def draw_board():
    pygame.draw.line(surf,(255,255,255),(300,0),(300,600),2)
    pygame.draw.line(surf,(255,255,255),(600,0),(600,600),2)
@@ -36,9 +41,14 @@ def draw_circle(x , y):
       pygame.draw.circle (surf ,(255,255,255),(x , y),80 , 5)
       pygame.display.flip()
 
+def draw_text():
+   surf.blit(text, (150,300))
+   pygame.display.flip()
+
 def check_for_victory():
    if a == 3 or r == 3:
       pygame.draw.line(surf, (255,0,0),(150,50),(150,550) ,5)
+      draw_text()
    if z == 3 or t == 3:
       pygame.draw.line(surf, (255,0,0),(450,50),(450,550) ,5)
    if e == 3 or w == 3:
@@ -60,9 +70,6 @@ def check_for_victory():
 
 
 
-
-
-
 while run:
      for event in pygame.event.get():
          if event.type == pygame.QUIT:
@@ -72,6 +79,10 @@ while run:
 
          if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed() == (1,0,0) :
+               current_player = not current_player
+               current_player != current_player
+
+               print(current_player,'currentPlayer')
                x , y = pygame.mouse.get_pos()
                if x <= (300) and y <= (200):
                   draw_circle(145 ,100)
@@ -227,6 +238,8 @@ while run:
                   w += 1
                   h += 1
                   c += 1
+         
+         
          
          if event.type == pygame.KEYDOWN :
             if event.key == pygame.K_SPACE :
