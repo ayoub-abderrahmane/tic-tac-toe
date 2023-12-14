@@ -5,6 +5,7 @@ font_path = "./Kids Draw.ttf"
 current_player = True
 surf = pygame.display.set_mode((900,600))
 run = True
+
 a = 0
 z = 0
 e = 0
@@ -22,7 +23,7 @@ m = 0
 c = 0
 v = 0
 
-font = pygame.font.Font(font_path, 64)
+font = pygame.font.Font(font_path, 74)
 text = font.render("VOUS ÊTES LE VAINQUEUR !",1,(0, 219, 253))
 
 def draw_board():
@@ -42,7 +43,7 @@ def draw_circle(x , y):
       pygame.display.flip()
 
 def draw_text():
-   surf.blit(text, (150,300))
+   surf.blit(text, (50,300))
    pygame.display.flip()
 
 def check_for_victory():
@@ -51,38 +52,116 @@ def check_for_victory():
       draw_text()
    if z == 3 or t == 3:
       pygame.draw.line(surf, (255,0,0),(450,50),(450,550) ,5)
+      draw_text()
    if e == 3 or w == 3:
       pygame.draw.line(surf, (255,0,0),(750,50),(750,550) ,5)
+      draw_text()
    if q == 3 or f == 3:
       pygame.draw.line(surf, (255,0,0),(50,100),(850,100) ,5)
+      draw_text()
    if s == 3 or g == 3:
       pygame.draw.line(surf, (255,0,0),(50,300),(850,300) ,5)
+      draw_text()
    if d == 3 or h == 3:
       pygame.draw.line(surf, (255,0,0),(50,500),(850,500) ,5)
+      draw_text()
    if k == 3:
       pygame.draw.line(surf, (255,0,0),(50,50),(850,550) ,5)
+      draw_text()
    if m == 3:
       pygame.draw.line(surf, (255,0,0),(50,550),(850,50) ,5)
+      draw_text()
    if c == 3:
       pygame.draw.line(surf, (255,0,0),(50,50),(850,550) ,5)
+      draw_text()
    if v == 3:
       pygame.draw.line(surf, (255,0,0),(50,550),(850,50) ,5)
+      draw_text()
 
+def draw_cross_in_board():
 
+     # Croix de la première colonne         
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) :
+         x , y = pygame.mouse.get_pos()
+         if x <= (300) and y <= (200):
+            draw_cross((100,50),(200,150),(100, 150),(200,50))
+            r += 1
+            f += 1
+            c += 1
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) :
+         x , y = pygame.mouse.get_pos()
+         if x <= (300) and y >= (200) and y <= (400):
+            draw_cross((100,250),(200,350),(100, 350),(200,250))
+            r += 1
+            g += 1
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) :
+         x , y = pygame.mouse.get_pos()
+         if x <= (300) and y >= (400):
+            draw_cross((100,450),(200,550),(100, 550),(200,450))
+            r += 1
+            h += 1
+            v += 1
+   
+   # Croix de la deuxième colonne
 
-while run:
-     for event in pygame.event.get():
-         if event.type == pygame.QUIT:
-            run = False
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) :
+         x , y = pygame.mouse.get_pos()
+         if x >= (300) and x <= (600) and y <= (200):
+            draw_cross((400,50),(500,150),(400, 150),(500,50))
+            t += 1
+            f += 1
+            
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) :
+         x , y = pygame.mouse.get_pos()
+         if x >= (300) and x <= (600) and y >= (200) and y <= (400):
+            draw_cross((400,250),(500,350),(400, 350),(500,250))
+            t += 1
+            g += 1
+            c += 1
+            v += 1
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) :
+         x , y = pygame.mouse.get_pos()
+         if x >= (300) and x <= (600) and y >= (400):
+            draw_cross((400,450),(500,550),(400, 550),(500,450))
+            t += 1
+            h += 1
+   
+   # Croix de la troisième colonne
 
-         # Cercle de la première colonne
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) :
+         x , y = pygame.mouse.get_pos()
+         if x >= (600) and y <= (200):
+            draw_cross((700,50),(800,150),(700, 150),(800,50))
+            w += 1
+            f += 1
+            v += 1
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) :
+         x , y = pygame.mouse.get_pos()
+         if x >= (600) and y >= (200) and y <= (400):
+            draw_cross((700,250),(800,350),(700, 350),(800,250))
+            w += 1
+            g += 1
+   if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (0,0,1) : 
+         x , y = pygame.mouse.get_pos()
+         if x >= (600) and y >= (400):
+            draw_cross((700,450),(800,550),(700, 550),(800,450))
+            w += 1
+            h += 1
+            c += 1
+
+def draw_circle_in_board():
+   # Cercle de la première colonne
 
          if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (1,0,0) :
-               current_player = not current_player
-               current_player != current_player
-
-               print(current_player,'currentPlayer')
                x , y = pygame.mouse.get_pos()
                if x <= (300) and y <= (200):
                   draw_circle(145 ,100)
@@ -107,7 +186,7 @@ while run:
 
          
          
-         # Cercle de la deuxième cologne
+         # Cercle de la deuxième colonne
 
          if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed() == (1,0,0) :
@@ -134,7 +213,7 @@ while run:
                   d += 1
          
          
-         # Cercle de la troisième cologne
+         # Cercle de la troisième colonne
 
          if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed() == (1,0,0) :
@@ -159,95 +238,26 @@ while run:
                   e += 1
                   d += 1
                   k += 1
-         
-         #//////////////////////////////////:: TEST POUR PASSER AU SECOND JOUEUR /////////////////////////////////////////////////////////////////////
 
-         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) :
-               x , y = pygame.mouse.get_pos()
-               if x <= (300) and y <= (200):
-                  draw_cross((100,50),(200,150),(100, 150),(200,50))
-                  r += 1
-                  f += 1
-                  c += 1
-         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) :
-               x , y = pygame.mouse.get_pos()
-               if x <= (300) and y >= (200) and y <= (400):
-                  draw_cross((100,250),(200,350),(100, 350),(200,250))
-                  r += 1
-                  g += 1
-         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) :
-               x , y = pygame.mouse.get_pos()
-               if x <= (300) and y >= (400):
-                  draw_cross((100,450),(200,550),(100, 550),(200,450))
-                  r += 1
-                  h += 1
-                  v += 1
-         
-         # Croix de la deuxième cologne
 
-         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) :
-               x , y = pygame.mouse.get_pos()
-               if x >= (300) and x <= (600) and y <= (200):
-                  draw_cross((400,50),(500,150),(400, 150),(500,50))
-                  t += 1
-                  f += 1
-                  
-         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) :
-               x , y = pygame.mouse.get_pos()
-               if x >= (300) and x <= (600) and y >= (200) and y <= (400):
-                  draw_cross((400,250),(500,350),(400, 350),(500,250))
-                  t += 1
-                  g += 1
-                  c += 1
-                  v += 1
-         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) :
-               x , y = pygame.mouse.get_pos()
-               if x >= (300) and x <= (600) and y >= (400):
-                  draw_cross((400,450),(500,550),(400, 550),(500,450))
-                  t += 1
-                  h += 1
-         
-         # Croix de la troisième cologne
 
+while run:
+     for event in pygame.event.get():
+         if event.type == pygame.QUIT:
+               run = False
          if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) :
-               x , y = pygame.mouse.get_pos()
-               if x >= (600) and y <= (200):
-                  draw_cross((700,50),(800,150),(700, 150),(800,50))
-                  w += 1
-                  f += 1
-                  v += 1
-         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) :
-               x , y = pygame.mouse.get_pos()
-               if x >= (600) and y >= (200) and y <= (400):
-                  draw_cross((700,250),(800,350),(700, 350),(800,250))
-                  w += 1
-                  g += 1
-         if event.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.get_pressed() == (0,0,1) : 
-               x , y = pygame.mouse.get_pos()
-               if x >= (600) and y >= (400):
-                  draw_cross((700,450),(800,550),(700, 550),(800,450))
-                  w += 1
-                  h += 1
-                  c += 1
-         
+            if pygame.mouse.get_pressed() == (1,0,0) :
+               draw_circle_in_board()
+               current_player = not current_player
+               if current_player == False:
+                  draw_circle_in_board()
+               else:
+                  draw_cross_in_board()
          
          
          if event.type == pygame.KEYDOWN :
             if event.key == pygame.K_SPACE :
-               surf.fill((0,0,0))        
-         
-         
-         
-      
+               surf.fill((0,0,0))                 
          check_for_victory()
          draw_board()
 
