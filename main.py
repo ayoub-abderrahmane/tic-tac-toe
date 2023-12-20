@@ -1,6 +1,8 @@
 import pygame
 pygame.init()
 
+pygame.display.set_caption('Jeu du Morpion')
+
 font_path = "./Kids Draw.ttf"
 current_player = True
 surf = pygame.display.set_mode((900,600))
