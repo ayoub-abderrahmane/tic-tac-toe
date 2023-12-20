@@ -137,8 +137,9 @@ def check_for_equality():
       draw_text_equality()
 
 
-def draw_cross_in_board(vérif1):
+def draw_cross_in_board():
    global r,f,c,g,h,v,t,w,i
+   global vérif1,vérif2,vérif3,vérif4,vérif5,vérif6,vérif7,vérif8,vérif9
 
      # Croix de la première colonne         
    if event.type == pygame.MOUSEBUTTONDOWN:
@@ -151,7 +152,6 @@ def draw_cross_in_board(vérif1):
             c += 1
             i += 1
             vérif1 = 1
-            print (vérif1)
    if event.type == pygame.MOUSEBUTTONDOWN:
       if pygame.mouse.get_pressed() == (1,0,0) :
          x , y = pygame.mouse.get_pos()
@@ -160,7 +160,7 @@ def draw_cross_in_board(vérif1):
             r += 1
             g += 1
             i += 1
-            vérif2 == 1
+            vérif2 = 1
    if event.type == pygame.MOUSEBUTTONDOWN:
       if pygame.mouse.get_pressed() == (1,0,0) :
          x , y = pygame.mouse.get_pos()
@@ -170,7 +170,7 @@ def draw_cross_in_board(vérif1):
             h += 1
             v += 1
             i += 1
-            vérif3 == 1
+            vérif3 = 1
    
    # Croix de la deuxième colonne
 
@@ -182,7 +182,7 @@ def draw_cross_in_board(vérif1):
             t += 1
             f += 1
             i += 1
-            vérif4 == 1
+            vérif4 = 1
             
    if event.type == pygame.MOUSEBUTTONDOWN:
       if pygame.mouse.get_pressed() == (1,0,0) :
@@ -194,7 +194,7 @@ def draw_cross_in_board(vérif1):
             c += 1
             v += 1
             i += 1
-            vérif5 == 1
+            vérif5 = 1
    if event.type == pygame.MOUSEBUTTONDOWN:
       if pygame.mouse.get_pressed() == (1,0,0) :
          x , y = pygame.mouse.get_pos()
@@ -203,7 +203,7 @@ def draw_cross_in_board(vérif1):
             t += 1
             h += 1
             i += 1
-            vérif6 == 1
+            vérif6 = 1
    
    # Croix de la troisième colonne
 
@@ -216,7 +216,7 @@ def draw_cross_in_board(vérif1):
             f += 1
             v += 1
             i += 1
-            vérif7 == 1
+            vérif7 = 1
    if event.type == pygame.MOUSEBUTTONDOWN:
       if pygame.mouse.get_pressed() == (1,0,0) :
          x , y = pygame.mouse.get_pos()
@@ -225,7 +225,7 @@ def draw_cross_in_board(vérif1):
             w += 1
             g += 1
             i += 1
-            vérif8 == 1
+            vérif8 = 1
    if event.type == pygame.MOUSEBUTTONDOWN:
       if pygame.mouse.get_pressed() == (1,0,0) : 
          x , y = pygame.mouse.get_pos()
@@ -235,11 +235,13 @@ def draw_cross_in_board(vérif1):
             h += 1
             c += 1
             i += 1
-            vérif9 == 1
-   # return vérif1,vérif2,vérif3,vérif4,vérif5,vérif6,vérif7,vérif8,vérif9
+            vérif9 = 1
 
-def draw_circle_in_board(vérif1):
+# /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+def draw_circle_in_board():
       global a ,k, q ,d , m, s, z, e ,i
+      global vérif1,vérif2,vérif3,vérif4,vérif5,vérif6,vérif7,vérif8,vérif9
 # Cercle de la première colonne
 
       if event.type == pygame.MOUSEBUTTONDOWN:
@@ -251,7 +253,6 @@ def draw_circle_in_board(vérif1):
                k += 1
                i += 1
                vérif1 = 1
-               print (vérif1)
       if event.type == pygame.MOUSEBUTTONDOWN:
          if pygame.mouse.get_pressed() == (1,0,0) :
             x , y = pygame.mouse.get_pos()
@@ -260,7 +261,7 @@ def draw_circle_in_board(vérif1):
                a += 1
                s += 1
                i += 1
-               vérif2 == 1
+               vérif2 = 1
       if event.type == pygame.MOUSEBUTTONDOWN:
          if pygame.mouse.get_pressed() == (1,0,0) :
             x , y = pygame.mouse.get_pos()
@@ -270,7 +271,7 @@ def draw_circle_in_board(vérif1):
                d += 1
                m += 1
                i += 1
-               vérif3 == 1
+               vérif3 = 1
 
       
       
@@ -284,7 +285,7 @@ def draw_circle_in_board(vérif1):
                z += 1
                q += 1
                i += 1
-               vérif4 == 1
+               vérif4 = 1
       if event.type == pygame.MOUSEBUTTONDOWN:
          if pygame.mouse.get_pressed() == (1,0,0) :
             x , y = pygame.mouse.get_pos()
@@ -295,7 +296,7 @@ def draw_circle_in_board(vérif1):
                k += 1
                m += 1
                i += 1
-               vérif5 == 1
+               vérif5 = 1
       if event.type == pygame.MOUSEBUTTONDOWN:
          if pygame.mouse.get_pressed() == (1,0,0) :
             x , y = pygame.mouse.get_pos()
@@ -304,7 +305,7 @@ def draw_circle_in_board(vérif1):
                z += 1
                d += 1
                i += 1
-               vérif6 == 1
+               vérif6 = 1
       
       
       # Cercle de la troisième colonne
@@ -318,7 +319,7 @@ def draw_circle_in_board(vérif1):
                q += 1
                m +=1
                i += 1
-               vérif7 == 1
+               vérif7 = 1
       if event.type == pygame.MOUSEBUTTONDOWN:
          if pygame.mouse.get_pressed() == (1,0,0) :
             x , y = pygame.mouse.get_pos()
@@ -327,7 +328,7 @@ def draw_circle_in_board(vérif1):
                e += 1
                s += 1
                i += 1
-               vérif8 == 1
+               vérif8 = 1
       if event.type == pygame.MOUSEBUTTONDOWN:
          if pygame.mouse.get_pressed() == (1,0,0) :
             x , y = pygame.mouse.get_pos()
@@ -337,8 +338,7 @@ def draw_circle_in_board(vérif1):
                d += 1
                k += 1
                i += 1
-               vérif9 == 1
-      # return vérif1,vérif2,vérif3,vérif4,vérif5,vérif6,vérif7,vérif8,vérif9
+               vérif9 = 1
 
 while run2:
     for event in pygame.event.get():
@@ -375,9 +375,9 @@ while run:
             if pygame.mouse.get_pressed() == (1,0,0) :
             
                if current_player == False:
-                  draw_circle_in_board(vérif1)
+                  draw_circle_in_board()
                else:
-                  draw_cross_in_board(vérif1)
+                  draw_cross_in_board()
                current_player = not current_player
       
       
@@ -401,7 +401,16 @@ while run:
                m = 0
                c = 0
                v = 0  
-               i = 0           
+               i = 0
+               vérif1 = 0
+               vérif2 = 0
+               vérif3 = 0
+               vérif4 = 0
+               vérif5 = 0
+               vérif6 = 0
+               vérif7 = 0
+               vérif8 = 0
+               vérif9 = 0      
          check_for_victory()
          check_for_equality()
          draw_board()
