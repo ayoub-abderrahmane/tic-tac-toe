@@ -6,8 +6,25 @@ current_player = True
 surf = pygame.display.set_mode((900,600))
 run = True
 
+# Variable pour le menu d'acceuil
+
+font_path2 = "./SuperMario256.ttf "
+police = pygame.font.SysFont(font_path2, 120)
+text_col = (0, 255, 147 )
+rect_color = (93, 0, 255 )
+home = pygame.display.set_mode((900,600))
+back_img = pygame.image.load("vraifond.jpg")
+
+def draw_text2(text,police,text_col,x,y):
+    img = police.render(text,True,text_col)
+    home.blit(img,(x,y))
+
+run2 = True
+
+
 
 # Variable pour vérifier sur une case a été utilisée
+
 vérif1 = 0
 vérif2 = 0
 vérif3 = 0
@@ -19,6 +36,7 @@ vérif8 = 0
 vérif9 = 0
 
 # Variable pour vérifier les combinaison vainqueurs et afficher les messages de fin
+
 a = 0
 z = 0
 e = 0
@@ -119,7 +137,7 @@ def check_for_equality():
       draw_text_equality()
 
 
-def draw_cross_in_board():
+def draw_cross_in_board(vérif1):
    global r,f,c,g,h,v,t,w,i
 
      # Croix de la première colonne         
@@ -132,7 +150,8 @@ def draw_cross_in_board():
             f += 1
             c += 1
             i += 1
-            vérif1 == 1
+            vérif1 = 1
+            print (vérif1)
    if event.type == pygame.MOUSEBUTTONDOWN:
       if pygame.mouse.get_pressed() == (1,0,0) :
          x , y = pygame.mouse.get_pos()
@@ -217,8 +236,9 @@ def draw_cross_in_board():
             c += 1
             i += 1
             vérif9 == 1
+   # return vérif1,vérif2,vérif3,vérif4,vérif5,vérif6,vérif7,vérif8,vérif9
 
-def draw_circle_in_board():
+def draw_circle_in_board(vérif1):
       global a ,k, q ,d , m, s, z, e ,i
 # Cercle de la première colonne
 
@@ -230,7 +250,8 @@ def draw_circle_in_board():
                q += 1
                k += 1
                i += 1
-               vérif1 == 1
+               vérif1 = 1
+               print (vérif1)
       if event.type == pygame.MOUSEBUTTONDOWN:
          if pygame.mouse.get_pressed() == (1,0,0) :
             x , y = pygame.mouse.get_pos()
@@ -317,8 +338,35 @@ def draw_circle_in_board():
                k += 1
                i += 1
                vérif9 == 1
-# def morpion():
-#    global a ,k, q ,d , m, s, z, e ,i,r,f,c,g,h,v,t,w
+      # return vérif1,vérif2,vérif3,vérif4,vérif5,vérif6,vérif7,vérif8,vérif9
+
+while run2:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+    home.blit(back_img,(0,0))
+    pygame.draw.rect(home ,rect_color ,(180,80,520,80))
+    pygame.draw.rect(home ,rect_color ,(280,220,290,80))
+    pygame.draw.rect(home ,rect_color ,(300,360,240,80))
+    draw_text2("MAIN MENU",police,text_col,200,80)
+    draw_text2("START",police,text_col,290,220)
+    draw_text2("QUIT",police,text_col,310,360)
+    if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (1,0,0) :
+         x , y = pygame.mouse.get_pos()
+         if x >= (300) and x <= (520) and y >= (230) and y <= (300):
+            home.fill((0,0,0))
+            run2 = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+      if pygame.mouse.get_pressed() == (1,0,0) :
+         x , y = pygame.mouse.get_pos()
+         if x >= (300) and x <= (520) and y >= (370) and y <= (430):
+             pygame.quit()
+    
+    pygame.display.flip()
+
+
 while run:
    for event in pygame.event.get():
          if event.type == pygame.QUIT:
@@ -327,9 +375,9 @@ while run:
             if pygame.mouse.get_pressed() == (1,0,0) :
             
                if current_player == False:
-                  draw_circle_in_board()
+                  draw_circle_in_board(vérif1)
                else:
-                  draw_cross_in_board()
+                  draw_cross_in_board(vérif1)
                current_player = not current_player
       
       
